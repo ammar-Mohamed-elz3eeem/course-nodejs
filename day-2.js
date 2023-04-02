@@ -89,3 +89,65 @@
 // obj.operations.eatFunc()().eatArrow()().coding().sleep().repeat().nothing
 // obj.operations.eatFunc()().eatArrow()().coding().sleep().repeat().nothing
 
+
+// JSON.parse()
+
+// var ammar = {
+//         name: "ammar",
+//         age: 30,
+//         hoppies: ["ay haga", 'ay haga2', "ay haga3"]
+// }
+
+// var ahmed = {
+//         name: "ahmed",
+//         age: 30,
+//         hoppies: ["ay hagat", 'hagat', "ayhagat"]
+// }
+
+// ["ahmed", 30, ["ay hagat", 'hagat', "ayhagat"]]
+// ["ahmed", ["ay hagat", 'hagat', "ayhagat"], 30]
+
+// var o1 = 1
+// var o2 = 2
+// var o3 = 3
+// var o4 = 4
+// var o5 = 5
+// var o6 = 6
+// var o7 = 7
+// var o8 = 8
+// var o9 = 9
+
+// [1,2,3,4,5,6,7,8,9]
+
+// var obje = {
+//         error: "I love errors",
+//         error_types: {
+//                 404: "Not Found Page",
+//                 500: "Internal Server Error",
+//                 300: "Redirection",
+//                 200: "OK"
+//         }
+// }
+
+// var objeStr = JSON.stringify(obje);
+
+// console.log(typeof obje)
+// console.log(typeof objeStr)
+// console.log(typeofJSON.parse(objeStr));
+
+// const axios = require("axios")
+
+// var api = ("https://api.publicapis.org/entries", true)
+// api.then((data) => {
+//         console.log(data);
+// })
+
+
+// code below runs only on browser
+// var api = fetch("https://api.publicapis.org/entries")
+// api.then(data => {
+//         return data.json()
+// }).then(data => {
+//         console.log(data)
+// })
+

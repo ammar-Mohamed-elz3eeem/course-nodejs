@@ -68,11 +68,11 @@
 // const hostname = 'localhost';
 // const http = require("http");
 
-const requestListner = function (req, res) {
-        res.statusCode = 200;
-        res.setHeader("Content-Type", "text/json");
-        res.end(JSON.stringify(["name", "ammar"]));
-}
+// const requestListner = function (req, res) {
+//         res.statusCode = 200;
+//         res.setHeader("Content-Type", "text/json");
+//         res.end(JSON.stringify(["name", "ammar"]));
+// }
 
 // const server = http.createServer(requestListner);
 
@@ -81,18 +81,41 @@ const requestListner = function (req, res) {
 // })
 
 const express = require("express")
+const bodyParser = require("body-parser");
+const multer = require("multer");
+const forms = multer();
+
+// https://us02web.zoom.us/wc/88220181521/join?track_id=
 
 const app = express()
+
+app.use(bodyParser.urlencoded({extended: true}))
+app.use(forms.array());
 
 app.get("/", (req, res) => {
         console.log("I have requested Home page url");
         res.end("Hello, world!");
 })
 
+app.post("/user", bodyParser.json(), (req, res) => {
+        
+        res.json({
+                error: 0,
+                data_submitted: {
+                        body: req.body
+                }
+        })
+})
+
 app.get("*", (req, res) => {
-        res.status(404).json(["name", "ammar"]);
+        res.status(404).json({
+                error: "Page not found", 
+                status_code: 404, 
+                fun_message: "You love to get errros"
+        });
 })
 
 app.listen(8080, 'localhost', function () {
         console.log("server is up & running")
 })
+
