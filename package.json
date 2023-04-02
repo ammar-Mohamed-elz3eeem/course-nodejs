@@ -1,0 +1,30 @@
+{
+  "name": "course-nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://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@github.com/ammar-Mohamed-elz3eeem/course-nodejs.git"
+  },
+  "keywords": [
+    "API",
+    "MAnagement",
+    "Api System"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ammar-Mohamed-elz3eeem/course-nodejs/issues"
+  },
+  "homepage": "https://github.com/ammar-Mohamed-elz3eeem/course-nodejs#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}

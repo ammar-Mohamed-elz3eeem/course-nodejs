@@ -64,13 +64,35 @@
 // show_number();
 // console.log("I am from Global scobe: ",number);
 
-// const port = 8080
+// const port = 8080;
 // const hostname = 'localhost';
 // const http = require("http");
 
-// const requestListner = (req, res) => {
-//         res.statusCode = 200;
-//         res.setHeader("Content-Type", "text/json");
-//         res.end(JSON.stringify(["name", "ammar"]));
-// }
-// http.createServer(requestListner).listen(port, hostname)
+const requestListner = function (req, res) {
+        res.statusCode = 200;
+        res.setHeader("Content-Type", "text/json");
+        res.end(JSON.stringify(["name", "ammar"]));
+}
+
+// const server = http.createServer(requestListner);
+
+// server.listen(port, hostname, function () {
+//         console.log("Server is up & running")
+// })
+
+const express = require("express")
+
+const app = express()
+
+app.get("/", (req, res) => {
+        console.log("I have requested Home page url");
+        res.end("Hello, world!");
+})
+
+app.get("*", (req, res) => {
+        res.status(404).json(["name", "ammar"]);
+})
+
+app.listen(8080, 'localhost', function () {
+        console.log("server is up & running")
+})
