@@ -26,6 +26,11 @@ INSERT INTO [TABLE_NAME] ([FEILDS]) VALUES ([VALS]) -- add new row to table_name
 
 TRUNCATE [TABLE_NAME] -- Delete all table rows and restart id counter back to 1
 
+ALTER TABLE [TABLE_NAME] [ACTION] -- Edit table by applying action to it (
+        -- Replace [TABLE_NAME] with your table name
+        -- Replace [ACTION] with the action needed to perform on table
+-- )
+
 
 -- create database named backend ( your script should not fail if database exists )
 -- create table named lessons ( your script should not fail if table exists )
