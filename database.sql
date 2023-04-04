@@ -13,12 +13,19 @@ SELECT [FIELDS] FROM [TABLE_NAME] WHERE [CONDITION]; -- select with condition cu
         --      table_name with your db table name 
         --      condition with the codition you want to filter by
         -- )
+SELECT [FIELDS] FROM [TABLE_NAME] WHERE [CONDITION] ORDER BY [FIELD] [ORDER_METHOD]
+SELECT [FIELDS] FROM [TABLE_NAME] WHERE [CONDITION] ORDER BY [FIELD] [ORDER_METHOD] LIMIT [NUMBER_OF_RESULTS]
+
+        
 
 INSERT INTO [TABLE_NAME] ([FEILDS]) VALUES ([VALS]) -- add new row to table_name ( change
         -- table_name with your db table name
         -- fields with the fields you want to put on that table
         -- VALS with the values you want to add to that fields
 -- )
+
+TRUNCATE [TABLE_NAME] -- Delete all table rows and restart id counter back to 1
+
 
 -- create database named backend ( your script should not fail if database exists )
 -- create table named lessons ( your script should not fail if table exists )

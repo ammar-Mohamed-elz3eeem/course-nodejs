@@ -91,10 +91,10 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.use(forms.array());
 app.use(HomeRouter);
 
+
 app.listen(8080, 'localhost', function () {
         console.log("server is up & running")
 })
-
 
 module.exports = {
         app
