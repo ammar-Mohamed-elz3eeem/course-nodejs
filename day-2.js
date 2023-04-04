@@ -57,7 +57,7 @@
 //         age: "96",
 //         hoppies: ['swimming', 'playing', 'watching tv'],
 //         operations: {
-//                 eatArrow() {
+//                 eatArrow: function() {
 //                         return () => {
 //                                 console.log("I am eating");
 //                                 return this
