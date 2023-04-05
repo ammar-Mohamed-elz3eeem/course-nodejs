@@ -1,16 +1,11 @@
 const Router = require("express").Router();
 const db = require("../../../mysql-connector");
+const { query_runner, create_error_object, done } = require("../../helpers/db-functions");
 
 Router.get("/", (req, res) => {
-        db.query("SELECT * FROM author", (err, result) => {
-                if (!err) {
-                        res.status(200).json(result);
-                        return;
-                }
-                res.status(500).json({
-                        error: "error happned on db server"
-                })
-        })
+        query_runner("SELECT * FROM author")
+                .then(row => res.status(200).json(row))
+                .catch(err => res.status(500).json(create_error_object("db_error", err.message)))
 });
 
 Router.post("/", (req, res) => {
@@ -22,40 +17,25 @@ Router.post("/", (req, res) => {
                 req.body.password,
                 req.body.role
         ];
-
-        db.query("INSERT INTO author \
+        query_runner("INSERT INTO author \
         (name, age, email, username, password, role) \
-        VALUES (?, ?, ?, ?, ?, ?)", data, (err, result) => {
-                if (!err) {
-                        console.log(result)
-                        res.status(200).json({
-                                error: 0,
-                                data_submitted: {
-                                        ...req.body
-                                }
-                        });
-                        return;
-                }
-                res.status(500).json({
-                        error: "can't add user to db"
-                })
-        })
+        VALUES (?, ?, ?, ?, ?, ?)", data)
+                .then(row => res.status(200).json(row))
+                .catch(err => res.status(500).json(create_error_object("db_error", err.message)))
+        console.log("i ma here");
 });
 
+i = 1
+b = 2
+
+
 Router.delete("/:id", (req, res) => {
-        db.query("DELETE FROM author WHERE id = ?", [req.params.id], (err, result) => {
-                if (!err) {
-                        console.log(result)
-                        res.status(200).json({
-                                error: 0,
-                                status: "operation done"
-                        });
-                        return;
-                }
-                res.status(500).json({
-                        error: "user with that id is not found on db"
-                })
-        })
+        query_runner("DELETE FROM author WHERE id > ?", [req.params.id])
+                .then( ({affectedRows}) => res.status(200).json(affectedRows > 0 
+                                                                        ? done("user deleted successfully") 
+                                                                        : done("user doesn't exist")))
+                .catch(err => res.status(500)
+                                        .json(create_error_object("db_error", err.message)));
 })
 
 Router.patch("/:id", (req, res) => {

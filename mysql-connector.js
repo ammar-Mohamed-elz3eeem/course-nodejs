@@ -1,4 +1,4 @@
-const mysql = require("mysql");
+const mysql = require("mysql2");
 require("dotenv").config();
 
 const poolConnection = mysql.createPool({
@@ -9,4 +9,6 @@ const poolConnection = mysql.createPool({
         database: process.env.MYSQL_DBNAME
 });
 
-module.exports = poolConnection;
+const promiseConnection = poolConnection.promise();
+
+module.exports = promiseConnection;
