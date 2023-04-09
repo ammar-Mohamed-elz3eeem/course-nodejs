@@ -1,0 +1,27 @@
+
+// INNER JOIN 
+// FULL OUTER JOIN ->  Not in MySQL
+// RIGHT OUTER JOIN -> RIGHT JOIN in MySQL
+// LEFT OUTER JOIN -> LEFT JOIN in MySQL
+
+// Author TABLE
+
+// |  1 | ammar mohamed |  25 | ammar@auc.com |        NULL | NULL   | ammar_mohamed | 123456   | admin |
+// | 29 | Ibrahim       |  20 | I@Ib.com      |        NULL | NULL   | IBRA          | 123      | user  |
+// | 35 | Taha          |  35 | t@t.com       |        NULL | NULL   | taha_taha     | 123      | user  |
+// | 36 | Abbas         |  45 | a@abbas.com   |        NULL | NULL   | abbas         | 123      | user  |
+// | 37 | mohsen        |  41 | a@mohsen.com  |        NULL | NULL   | Mohsen        | 123      | user  |
+// | 38 | samy          |  41 | s@samy.com    |        NULL | NULL   | samy          | 123      | user  |
+// | 39 | zakaria       |  22 | z@zakria.com  |        NULL | NULL   | zakria        | 123      | user  |
+
+// Author_profile TABLE
+
+// |  1 |         1 | NULL    | NULL     | NULL    |
+// |  2 |        29 | NULL    | NULL     | NULL    |
+// |  3 |        35 | NULL    | NULL     | NULL    |
+// |  4 |        36 | NULL    | NULL     | NULL    |
+// |  5 |        37 | NULL    | NULL     | NULL    |
+// |  6 |        38 | NULL    | NULL     | NULL    |
+// |  7 |        39 | NULL    | NULL     | NULL    |
+
+SELECT * FROM Author_profile INNER JOIN Author ON author_id = author.id
