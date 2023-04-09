@@ -4,7 +4,7 @@ const { query_runner, create_error_object, done } = require("../../helpers/db-fu
 
 Router.get("/", (req, res) => {
         query_runner("SELECT * FROM author")
-                .then(row => res.status(200).json(row))
+                .then(rows => res.status(200).render("users", {users: rows, page_title: "Users Page"}))
                 .catch(err => res.status(500).json(create_error_object("db_error", err.message)))
 });
 
@@ -24,10 +24,6 @@ Router.post("/", (req, res) => {
                 .catch(err => res.status(500).json(create_error_object("db_error", err.message)))
         console.log("i ma here");
 });
-
-i = 1
-b = 2
-
 
 Router.delete("/:id", (req, res) => {
         query_runner("DELETE FROM author WHERE id > ?", [req.params.id])
