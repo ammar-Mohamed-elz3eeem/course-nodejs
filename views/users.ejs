@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title><%= page_title %></title>
+        <style>
+                table, tr, td {
+                        border: 1px solid #000;
+                }
+                td {
+                        padding: 5px 15px; 
+                }
+        </style>
+</head>
+<body>
+        <% if ( users.length > 0 ) { %>
+                <table>
+                        <thead>
+                                <tr>
+                                        <td>id</td>
+                                        <td>name</td>
+                                        <td>email</td>
+                                        <td>age</td>
+                                        <td>role</td>
+                                </tr>
+                        </thead>
+                        <tbody>
+                                <% users.forEach(user => { %>
+                                        <tr>
+                                                <td><%= user.id %></td>
+                                                <td><%= user.name %></td>
+                                                <td><%= user.email %></td>
+                                                <td><%= user.age %></td>
+                                                <td><%= user.role %></td>
+                                        </tr>
+                                <% }) %>
+                        </tbody>
+                </table>
+        <% } else { %>
+                <div>No Users Found</div>
+        <% } %>
+</body>
+</html>
