@@ -16,7 +16,7 @@ SELECT [FIELDS] FROM [TABLE_NAME] WHERE [CONDITION]; -- select with condition cu
 SELECT [FIELDS] FROM [TABLE_NAME] WHERE [CONDITION] ORDER BY [FIELD] [ORDER_METHOD]
 SELECT [FIELDS] FROM [TABLE_NAME] WHERE [CONDITION] ORDER BY [FIELD] [ORDER_METHOD] LIMIT [NUMBER_OF_RESULTS]
 
-        
+CREATE TABLE users (id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT , name VARCHAR(60) NOT NULL , username VARCHAR(60) NOT NULL , email VARCHAR(180) NOT NULL , `password` VARCHAR(20) NOT NULL , `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`id`), UNIQUE (`username`), UNIQUE (`email`)) ENGINE = InnoDB;
 
 INSERT INTO [TABLE_NAME] ([FEILDS]) VALUES ([VALS]) -- add new row to table_name ( change
         -- table_name with your db table name
@@ -31,6 +31,8 @@ ALTER TABLE [TABLE_NAME] [ACTION] -- Edit table by applying action to it (
         -- Replace [ACTION] with the action needed to perform on table
 -- )
 
+DROP DATABASE [DB_NAME]
+DROP TABLE [TABLE_NAME]
 
 -- create database named backend ( your script should not fail if database exists )
 -- create table named lessons ( your script should not fail if table exists )
